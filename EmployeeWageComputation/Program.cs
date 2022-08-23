@@ -1,19 +1,12 @@
 ﻿using System;
 namespace EmployeeWageComputation
 {
-    class Program
-    {
+    class Program 
+    { 
         static void Main(string[] args)
         {
-            //EmployeeWage a = new EmployeeWage();
-            //a.Attendence();
-
-            //EmployeeWage dailyempwage = new EmployeeWage();
-            //dailyempwage.CalculateEmpWage();
-
             EmployeeWage employeeWage = new EmployeeWage();
             employeeWage.CalculateEmpWage();
-    
         }
     }
 }
