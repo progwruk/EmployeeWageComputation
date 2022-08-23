@@ -6,8 +6,8 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
 
         { 
-            EmployeeWage employeewage = new EmployeeWage();
-            employeewage.CalculateEmpWage();
+            EmployeeWage workingdays = new EmployeeWage();
+            workingdays.CalculateEmpWage();
         }
     }
 }
