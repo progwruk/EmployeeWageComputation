@@ -8,8 +8,11 @@ namespace EmployeeWageComputation
             //EmployeeWage a = new EmployeeWage();
             //a.Attendence();
 
-            EmployeeWage dailyempwage = new EmployeeWage();
-            dailyempwage.CalculateEmpWage();
+            //EmployeeWage dailyempwage = new EmployeeWage();
+            //dailyempwage.CalculateEmpWage();
+
+            EmployeeWage employeeWage = new EmployeeWage();
+            employeeWage.CalculateEmpWage();
     
         }
     }
