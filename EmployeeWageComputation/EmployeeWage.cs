@@ -14,26 +14,31 @@ namespace EmployeeWageComputation
         {
             Random random = new Random();
             int empCheck = random.Next(0, 2); 
-            if (empCheck == 0)
+            if (empCheck == IS_FULL_TIME)
                 Console.WriteLine("Employee is present");
             else
                 Console.WriteLine("Employee is absent");
         }
         public void CalculateEmpWage()
         {
-                Random random = new Random();
+            Random random = new Random();
+            for (int i = 0; i < WORKING_DAYS; i++)
+            {
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
                     case IS_FULL_TIME:
-                        empHrs = FULL_TIME_HR;
+                        empHrs += FULL_TIME_HR;
                         break;
                     case IS_PART_TIME:
-                        empHrs = PART_TIME_HR;
+                        empHrs += PART_TIME_HR;
                         break;
                 }
-                totalEmpWage = WAGE_PER_HR * empHrs;
-                Console.WriteLine(totalEmpWage);
+            }
+
+            totalEmpWage = WAGE_PER_HR * empHrs;
+            Console.WriteLine(totalEmpWage);
         }
+        
     }
 }
