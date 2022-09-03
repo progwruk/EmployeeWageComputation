@@ -8,21 +8,12 @@ namespace EmployeeWageComputation
 {
     internal class EmployeeWage
     {
-        const int IS_FULL_TIME = 0, IS_PART_TIME = 1, WAGE_PER_HR = 20, FULL_TIME_HR = 8, PART_TIME_HR = 4, WORKING_DAYS = 20;
-        int totalEmpWage=0,empHrs=0;
-        public void Attendence()
+        const int IS_FULL_TIME = 0, IS_PART_TIME = 1, FULL_TIME_HR = 8, PART_TIME_HR = 4;
+        public int CalculateEmpWage(string company, int wagePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
+            int totalEmpWage = 0, empHrs = 0;
             Random random = new Random();
-            int empCheck = random.Next(0, 2); 
-            if (empCheck == IS_FULL_TIME)
-                Console.WriteLine("Employee is present");
-            else
-                Console.WriteLine("Employee is absent");
-        }
-        public void CalculateEmpWage()
-        {
-            Random random = new Random();
-            for (int i = 0; i < WORKING_DAYS && empHrs<100; i++)
+            for (int i = 0; i < numOfWorkingDays && empHrs <= maxHoursPerMonth; i++)
             {
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
@@ -35,10 +26,10 @@ namespace EmployeeWageComputation
                         break;
                 }
             }
-
-            totalEmpWage = WAGE_PER_HR * empHrs;
-            Console.WriteLine(totalEmpWage);
+            totalEmpWage = wagePerHour * empHrs;
+            Console.WriteLine("Total employee wage of " + company + " is : " + totalEmpWage);
+            return totalEmpWage;
         }
-        
+
     }
 }
