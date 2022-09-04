@@ -8,28 +8,43 @@ namespace EmployeeWageComputation
 {
     internal class EmployeeWage
     {
-        const int IS_FULL_TIME = 0, IS_PART_TIME = 1, FULL_TIME_HR = 8, PART_TIME_HR = 4;
-        public int CalculateEmpWage(string company, int wagePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        const int IS_FULL_TIME = 0, IS_PART_TIME = 1;
+        string company;
+        int wagePerHour, numOfWorkingDays, maxHoursPerMonth, totalEmpWage;
+
+        public EmployeeWage(string company, int wagePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
-            int totalEmpWage = 0, empHrs = 0;
-            Random random = new Random();
-            for (int i = 0; i < numOfWorkingDays && empHrs <= maxHoursPerMonth; i++)
+            this.company = company;
+            this.wagePerHour = wagePerHour;
+            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxHoursPerMonth = maxHoursPerMonth;
+        }
+    
+        public void CalculateEmpWage()
+        {
+            int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+            while(totalEmpHrs <= this.maxHoursPerMonth && totalWorkingDays < this.numOfWorkingDays)
             {
+                totalWorkingDays++;
+                Random random = new Random();
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
                     case IS_FULL_TIME:
-                        empHrs += FULL_TIME_HR;
+                        empHrs = 8;
                         break;
                     case IS_PART_TIME:
-                        empHrs += PART_TIME_HR;
+                        empHrs = 4;
                         break;
                 }
+                totalEmpHrs += empHrs;
             }
-            totalEmpWage = wagePerHour * empHrs;
+            totalEmpWage = totalEmpHrs * this.wagePerHour;
             Console.WriteLine("Total employee wage of " + company + " is : " + totalEmpWage);
-            return totalEmpWage;
         }
-
+        public string toString()
+        {
+            return "Total Emp wage for company  " + this.company + " is :" + totalEmpWage;
+        }
     }
 }
